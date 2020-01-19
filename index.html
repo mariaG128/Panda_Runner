@@ -6,7 +6,7 @@
 <body>
   <div id="runner"></div>
   <p>A life-changing online bookkeeping app</p>
-  
+  <button class="button" onclick="loginToGoogle();" style="width:auto;">Login</button>
 </body>
 
 </html>
@@ -16,40 +16,6 @@
 
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-#mySidenav a {
-  position: absolute;
-  left: -80px;
-  transition: 0.3s;
-  padding: 15px;
-  width: 100px;
-  text-decoration: none;
-  font-size: 20px;
-  color: white;
-  border-radius: 0 5px 5px 0;
-  
-}
-
-#mySidenav a:hover {
-  left: 0;
-}
-
-#about {
-  top: 250px;
-  background-color: #4CAF50;
-}
-
-#blog {
-  top: 300px;
-  background-color: #2196F3;
-}
-
-#projects {
-  top: 350px;
-  background-color: #f44336;
-}
-
-</style>
 </head>
 <body>
 
@@ -268,7 +234,7 @@ span.psw {
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <!--Get your own code at fontawesome.com-->
 </head>
-<button class="button" onclick="loginToGoogle();" style="width:auto;">Login</button>
+
 <div style="font-size:24px;">
 
 <div id="id01" class="modal">
@@ -276,7 +242,7 @@ span.psw {
   <form class="modal-content animate" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="/assets/login.png" style="width:80px;height:60px;">
+      <img src="/assets/expense.jpg" style="width:80px;height:60px;">
 
     </div>
 
@@ -285,70 +251,70 @@ span.psw {
     <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-    * {
-      box-sizing: border-box;
-    }
-    
-    input[type=text], select, textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      resize: vertical;
-    }
-    
-    label {
-      padding: 12px 12px 12px 0;
-      display: inline-block;
-    }
-    
-    input[type=submit] {
-      background-color: #4CAF50;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      float: right;
-    }
-    
-    input[type=submit]:hover {
-      background-color: #45a049;
-    }
-    
-    .container {
-      border-radius: 5px;
-      background-color: #f2f2f2;
-      padding: 20px;
-    }
-    
-    .col-25 {
-      float: left;
-      width: 25%;
-      margin-top: 6px;
-    }
-    
-    .col-75 {
-      float: left;
-      width: 75%;
-      margin-top: 6px;
-    }
-    
-    /* Clear floats after the columns */
-    .row:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-    
-    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-    @media screen and (max-width: 600px) {
-      .col-25, .col-75, input[type=submit] {
-        width: 100%;
-        margin-top: 0;
+      * {
+        box-sizing: border-box;
       }
-    }
-    </style>
+      
+      input[type=text], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+      }
+      
+      label {
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+      }
+      
+      input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+      }
+      
+      input[type=submit]:hover {
+        background-color: #45a049;
+      }
+      
+      .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+      
+      .col-25 {
+        float: left;
+        width: 25%;
+        margin-top: 6px;
+      }
+      
+      .col-75 {
+        float: left;
+        width: 75%;
+        margin-top: 6px;
+      }
+      
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      
+      /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+      @media screen and (max-width: 600px) {
+        .col-25, .col-75, input[type=submit] {
+          width: 100%;
+          margin-top: 0;
+        }
+      }
+      </style>
     </head>
     <body>
     
@@ -382,6 +348,77 @@ span.psw {
           </div>
         </div>
 
+        <div class="row">
+          <div class="col-25">
+            <label for="category">Category</label>
+          </div>
+          <div class="col-75">
+            <select id="categoryId" name="category">
+              <option value="Food">Food</option>
+              <option value="Living">Living</option>
+              <option value="Clothing">Clothing</option>
+              <option value="Transportation">Transportation</option>
+            </select>
+          </div>
+        </div>
+  </div>
+</head>
+<body>
+  <button type="button" onclick="addNewItem();">Save</button>
+</body>
+</html>
+
+</form>
+
+</div>
+
+<div id="id02" class="modal">
+  
+  <form class="modal-content animate" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="/assets/money.jpg" style="width:80px;height:60px;">
+
+    </div>
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    </head>
+    <body>
+    
+    <h2> Update Your Expense </h2>
+    
+    <div class="container">
+        <div class="row">
+          <div class="col-25">
+            <label for="updateItemNameId">Item Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="updateItemNameId" name="itemName" placeholder="Your Item Name...">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-25">
+            <label for="updatePriceId">Price</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="updatePriceId" name="price" placeholder="Your Price...">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-25">
+            <label for="updateNumberId">Number</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="updateNumberId" name="number" placeholder="Number of items...">
+          </div>
+        </div>
+
         
 
         <div class="row">
@@ -389,7 +426,7 @@ span.psw {
             <label for="category">Category</label>
           </div>
           <div class="col-75">
-            <select id="categoryId" name="category">
+            <select id="updateCategoryId" name="category">
               <option value="Food">Food</option>
               <option value="Living">Living</option>
               <option value="Clothing">Clothing</option>
@@ -416,93 +453,68 @@ span.psw {
 </head>
 <body>
 
-<button type="button" onclick="addNewItem();">Save</button>
+  <button type="button" onclick="updateItem();">Update</button>
 
 </body>
 </html>
 
 </form>
-</div>
 
-<script>
-// Get the modal
-var modal = document.getElementById('id01');
-console.log(modal)
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
-</div>
-
-<div id="id02" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-  <span class="label food">Food</span>
-<span class="label transportation">Transportation</span>
-<span class="label Others">Others</span></p>
-
-<form class="modal-content animate" method="post">
-    <div class="imgcontainer">
-      <img src= "/assets/money.jpg " style="width:50px;height:60px">
-    </div>
-
-    <div class="container" >
-      <label for="food"><b>Food&Beverage...</b></label>
-      <input type="text" placeholder="Enter Food&Beverage..." name="F%B" required>
-
-      <label for="trans"><b>Transportation</b></label>
-      <input type="text" placeholder="Enter Transportation..." name="trans" required>
-        
-      <label for="clothes"><b>Clothes</b></label>
-      <input type="text" placeholder="Enter Clothes..." name="clothes" required>
-
-      <button type="submit">Calculate</button>
-      <label>
-    </div>
-
-<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-</div>
 </div>
 
 
 <div id="id03" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>
-<span class="label salary">Salary</span>
-<span class="label red pocket">RedPocket</span>
-<span class="label Others">Others</span></p>
-
-<form class="modal-content animate" method="post">
+  
+  <form class="modal-content animate" method="post">
     <div class="imgcontainer">
-      <img src="/assets/income.png" style="width:50px;height:60px">
+      <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="/assets/income.png" style="width:80px;height:60px;">
+
     </div>
 
-    <div class="container>
-      <label for="salary"><b>Salary</b></label>
-      <input type="text" placeholder="Enter Salary" name="Salary" required>
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    </head>
+    <body>
+    
+    <h2> Delete Your Item </h2>
+    
+    <div class="container">
+        <div class="row">
+          <div class="col-25">
+            <label for="deleteItemNameId">Item Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="deleteItemNameId" name="itemName" placeholder="Your Item Name...">
+          </div>
+        </div>
 
-      <label for="RedPoecket"><b>RedPocket</b></label>
-      <input type="text" placeholder="Enter RedPocket" name="rp" required>
-        
-      <label for="others"><b>Others</b></label>
-      <input type="text" placeholder="Enter Others" name="others" required>
+        <div class="row">
+          <div class="col-25">
+            <label for="category">Category</label>
+          </div>
+          <div class="col-75">
+            <select id="deleteCategoryId" name="category">
+              <option value="Food">Food</option>
+              <option value="Living">Living</option>
+              <option value="Clothing">Clothing</option>
+              <option value="Transportation">Transportation</option>
+            </select>
+          </div>
+        </div>
+  </div>
+</head>
+<body>
+  <button type="button" onclick="deleteItem();">Delete</button>
+</body>
+</html>
 
-      <button type="submit">Calculate</button>
-      <label>
-    </div>
+</form>
 
-<span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
 </div>
-</div>
-
 <hr>
 
 

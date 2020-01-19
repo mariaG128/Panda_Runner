@@ -28,7 +28,6 @@ function signOut() {
 
   
 function addNewItem() {
-    
     var itemName = document.getElementById("itemNameId").value
     var price = document.getElementById("priceId").value
     var number = document.getElementById("numberId").value
@@ -47,12 +46,17 @@ function addNewItem() {
 }
 
 // update an item
-function updateItem(itemName, price, number, category) {
+function updateItem() {
+    var itemName = document.getElementById("updateItemNameId").value
+    var price = document.getElementById("updatePriceId").value
+    var number = document.getElementById("updateNumberId").value
+    var category = document.getElementById("updateCategoryId").value
     var itemData = {
         "itemName": itemName,
         "price": price,
         "number": number
     }
+    console.log(itemData)
     var userId = firebase.auth().currentUser.uid;
     var ref = database.ref("book/" + userId + '/' + category);
     var query = ref.orderByChild('itemName').equalTo(itemName);
@@ -64,7 +68,10 @@ function updateItem(itemName, price, number, category) {
 }
 
 //delete an item
-function deleteItem(category, itemName) {
+function deleteItem() {
+    var itemName = document.getElementById("deleteItemNameId").value
+    var category = document.getElementById("deleteCategoryId").value
+    
     var userId = firebase.auth().currentUser.uid;
     var ref = database.ref("book/" + userId + '/' + category);
     var query = ref.orderByChild('itemName').equalTo(itemName);
