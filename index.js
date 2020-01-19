@@ -27,12 +27,18 @@ function signOut() {
 }
 
   
-function addNewItem(itemName, price, number, category) {
+function addNewItem() {
+    
+    var itemName = document.getElementById("itemNameId").value
+    var price = document.getElementById("priceId").value
+    var number = document.getElementById("numberId").value
+    var category = document.getElementById("categoryId").value
     var itemData = {
         "itemName": itemName,
         "price": price,
         "number": number
     }
+    
     var userId = firebase.auth().currentUser.uid;
     // Get a key for a new item.
     var bookRef = firebase.database().ref('book/' + userId + '/' + category);
