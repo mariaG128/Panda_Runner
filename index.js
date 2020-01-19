@@ -17,6 +17,15 @@ let database = firebase.database();
 let storage = firebase.storage();
 
 
+function loginToGoogle() {
+    let provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider);
+}
+
+function signOut() {
+    auth.signOut();
+}
+
   
 function addNewItem(itemName, price, number, category) {
     var itemData = {
@@ -24,19 +33,39 @@ function addNewItem(itemName, price, number, category) {
         "price": price,
         "number": number
     }
-
+    var userId = firebase.auth().currentUser.uid;
     // Get a key for a new item.
-    var newItemKey = firebase.database().ref().child('item').push().key;
+    var bookRef = firebase.database().ref('book/' + userId + '/' + category);
+    var newItem = bookRef.push()
+    return newItem.set(itemData);
+}
 
-    // Write the new item's data simultaneously in the item list and the item's category list.
-    var updates = {};
-    updates['/book/' + category + '/items/' + newItemKey] = itemData;
-
-    return firebase.database().ref().update(updates);
+// update an item
+function updateItem(itemName, price, number, category) {
+    var itemData = {
+        "itemName": itemName,
+        "price": price,
+        "number": number
+    }
+    var userId = firebase.auth().currentUser.uid;
+    var ref = database.ref("book/" + userId + '/' + category);
+    var query = ref.orderByChild('itemName').equalTo(itemName);
+    query.once("value", function(snapshot) {
+        snapshot.forEach(function(child){
+            child.ref.update(itemData)
+        })
+    })
 }
 
 //delete an item
-function deleteItem(itemKey,number) {
-    database.ref("/item-Key/"+itemKey).remove();
+function deleteItem(category, itemName) {
+    var userId = firebase.auth().currentUser.uid;
+    var ref = database.ref("book/" + userId + '/' + category);
+    var query = ref.orderByChild('itemName').equalTo(itemName);
+    query.once("value", function(snapshot) {
+        snapshot.forEach(function(child){
+            child.ref.remove()
+        })
+    })
 }
 
