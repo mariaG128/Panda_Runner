@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+  padding: 15px;
+}
+
+body{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-content: flex-start;
+}
+
+.container{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+</style>
+<meta charset="utf-8" />
+<title>Your first HTML form, styled</title>
+
+</head>
+<body>
+
+<div class="container">
+<h2>Transaction</h2>
+<p>Use the 'add' 'update' or 'delete' to add a transaction.</p>
+
+
+<table align="right";
+    style="width:80%";
+    background-color: #f1f1c1>
+  <tr>
+     
+    <th>   </th>
+    <th>unit</th>
+    <th>price</th>
+    <th>total</th>
+
+  </tr>
+  <tr>
+
+    <td>1st</td>
+    <td>    </td> 
+    <td>   </td>  
+    <td></td>
+
+  </tr>
+  <tr>
+    <td>2nd</td>
+    <td></td>
+    <td></td>
+    <th>   </th>
+    
+  </tr>
+  <tr>
+    <td>3rd</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>4th</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>5th</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+</table>
+
+
+</div>
+
+
+	
+		<form action="/my-handling-form-page" method="post">
+			<ul>
+				<li>
+					<label for="name">Name:</label>
+					<input type="text" id="name" name="user_name" />
+				</li>
+				<li>
+					<label for="mail">E-mail:</label>
+					<input type="email" id="mail" name="user_mail" />
+				</li>
+				<li>
+					<label for="msg">Current balance:</label>
+					<textarea id="msg" name="user_message"></textarea>
+				</li>
+				<li class="button">
+					<button type="submit">Log Out</button>
+				</li>
+			</ul>
+		</form>
+	</body>
+</html>
+
+<style>
+form {  position:relative;
+    left: 87%;
+        width: 100px;
+        /* To see the outline of the form */
+        padding: 1em;
+        border: 1px solid #ccc;
+        border-radius: 0.8em;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    form li + li {
+        margin-top: 1em;
+    }
+
+    label {
+        /* To make sure that all labels have the same size and are properly aligned */
+        display: inline-block;
+        width: 90px;
+        text-align: right;
+    }
+
+    input,
+    textarea {
+        /* To make sure that all text fields have the same font settings By default, textareas have a monospace font */
+        font: 1em sans-serif;
+        /* To give the same size to all text fields */
+        width: 100px;
+        box-sizing: border-box; /* To harmonize the look & feel of text field border */
+        border: 1px solid #999;
+    }
+
+    input:focus,
+    textarea:focus {
+        /* To give a little highlight on active elements */
+        border-color: #000;
+    }
+
+    textarea {
+        /* To properly align multiline text fields with their labels */
+        vertical-align: top;
+        /* To give enough room to type some text */
+        height: 1em;
+    }
+
+    .button {
+        /* To position the buttons to the same position of the text fields */
+        padding-left: 70px;
+        /* same size as the label elements */
+    }
+
+    button {
+        /* This extra margin represent roughly the same space as the space between the labels and their text fields */
+        margin-left: 0.3em;
+    }
+
+</style>
