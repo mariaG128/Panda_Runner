@@ -100,17 +100,22 @@ function deleteItem() {
 }
 
 function updateTable(){
-    var counter = 1;
+    
     var total = 0;
     database.ref("/book").once("value", function(snapshot) {
         snapshot.forEach(function(childSnapshot){
             var childData = childSnapshot.val()
             for (var category in childData){
                 var values = Object.values(childData[category])
-                
+                var counter = 1;
                 var table = document.getElementById(category.toLowerCase()+"table")
+                var rows = table.rows;
+                var i = rows.length;
+                while (--i) {
+                    rows[i].parentNode.removeChild(rows[i]);
+                }
+                
                 for (const value of values) {
-                    console.log(value)
                     var row = table.insertRow(counter);
                     var itemName = row.insertCell(0);
                     var unit = row.insertCell(1);
@@ -125,6 +130,7 @@ function updateTable(){
                 }
             }
             var totalTable = document.getElementById("totaltable")
+            totalTable.getElementsByTagName("tbody")[0].innerHTML = totalTable.rows[0].innerHTML;
             var totalRow = totalTable.insertRow(1);
             var totalNumberCell = totalRow.insertCell(0);
             totalNumberCell.style.textAlign = "right"
