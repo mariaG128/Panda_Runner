@@ -229,6 +229,7 @@ span.psw {
 }
 </style>
 </head>
+
 <body>
 
 <title>Font Awesome Icons</title>
@@ -529,7 +530,93 @@ span.psw {
      <p>An investment in knowledge pays the best interest. --Benjamin Franklin</p>
      <hr>
      <p>Record your money monthly. </p>
+     <button class="button" onclick="updateTable();" style="width:auto;">Update Tables</button>
+     <div class="container">
+      <h3>Food</h3>
+      <table id="foodtable" align="left";
+          style="width:80%";
+          background-color: #f1f1c1>
+        <tr align="left">
+          <th>item name</th>
+          <th>unit</th>
+          <th>price</th>
+          <th>subtotal</th>
+        </tr>
+        <tr id="foodRow">
 
+        </tr>
+        <br><br>
+      </table>
+     </div>
+     <hr>
+     <div class="container">
+      <h3>Living</h3>
+      <table id="livingtable" align="left";
+          style="width:80%";
+          background-color: #f1f1c1>
+        <tr align="left">
+          <th>item name</th>
+          <th>unit</th>
+          <th>price</th>
+          <th>subtotal</th>
+        </tr>
+        <tr id="livingRow">
+
+        </tr>
+        <br><br>
+      </table>
+      </div>
+      <hr>
+      <div class="container">
+      </table>
+      <h3>Clothing</h3>
+      <table id="clothingtable" align="left";
+          style="width:80%";
+          background-color: #f1f1c1>
+        <tr align="left">
+          <th>item name</th>
+          <th>unit</th>
+          <th>price</th>
+          <th>subtotal</th>
+        </tr>
+        <tr id="clothingRow">
+        </tr>
+      <br><br>
+      </table>
+      </div>
+      <hr>
+      <div class="container">
+        <h3>Transportation</h3>
+        <table id="transportationtable" align="left";
+            style="width:80%";
+            background-color: #f1f1c1>
+          <tr align="left">
+            <th>item name</th>
+            <th>unit</th>
+            <th>price</th>
+            <th>subtotal</th>
+          </tr>
+          <tr id="transRow">
+  
+          </tr>
+        <br><br>
+        </table>
+
+      </div>
+      <hr>
+      <div class="container">
+        <table id="totaltable";
+            style="width:80%";
+            background-color: #f1f1c1>
+          <tr align="right">
+            <th>total</th>
+          </tr>
+          
+        </table>
+      </div>
+      <hr>
+
+     
 <body\>
 <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase.js"></script>   
 <script src="index.js" type="text/javascript"></script>

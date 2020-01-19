@@ -99,3 +99,36 @@ function deleteItem() {
     })
 }
 
+function updateTable(){
+    var counter = 1;
+    var total = 0;
+    database.ref("/book").once("value", function(snapshot) {
+        snapshot.forEach(function(childSnapshot){
+            var childData = childSnapshot.val()
+            for (var category in childData){
+                var values = Object.values(childData[category])
+                
+                var table = document.getElementById(category.toLowerCase()+"table")
+                for (const value of values) {
+                    console.log(value)
+                    var row = table.insertRow(counter);
+                    var itemName = row.insertCell(0);
+                    var unit = row.insertCell(1);
+                    var price = row.insertCell(2);
+                    var subtotal = row.insertCell(3);
+                    itemName.innerHTML = value.itemName;
+                    unit.innerHTML = value.number;
+                    price.innerHTML = value.price;
+                    subtotal.innerHTML = value.number * value.price;
+                    total += value.number * value.price;
+                    counter++;
+                }
+            }
+            var totalTable = document.getElementById("totaltable")
+            var totalRow = totalTable.insertRow(1);
+            var totalNumberCell = totalRow.insertCell(0);
+            totalNumberCell.style.textAlign = "right"
+            totalNumberCell.innerHTML = total;
+        })
+    })
+}
