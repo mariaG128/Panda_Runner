@@ -17,3 +17,32 @@ var firebaseConfig = {
   let storage = firebase.storage();
 
   
+
+  function writeItemData(itemName, price, number, category) {
+    firebase.database().ref('item/' + itemName).set({
+      n: itemName,
+      p: price,
+      nu : number,
+      ca:category
+    });
+  }
+
+  
+  function addNewItem(itemName, price, number, category) {
+    
+    var itemData = {itemName,price,number,category};
+
+    // Get a key for a new item.
+    var newItemKey = firebase.database().ref().child('item').push().key;
+  
+    // Write the new item's data simultaneously in the item list and the item's category list.
+    var updates = {};
+    updates['/item-category/' + ca + '/item-Name/' + itemName+'/item-Key/'+newItemKey] = itemData;
+  
+    return firebase.database().ref().update(updates);
+  }
+
+  //delete an item
+  function deleteItem(itemKey,number) {
+    database.ref("/item-Key/"+itemKey).remove();
+}
