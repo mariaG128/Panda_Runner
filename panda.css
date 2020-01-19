@@ -1,0 +1,31 @@
+body{
+	background-color: white;
+}
+
+#runner{
+
+	background:url("https://miro.medium.com/max/2400/0*vs_F_hXVwhuCK62-.");
+	width:178px;
+	height:149px;
+	animation:walk 1.5s steps(9) infinite,
+				forward 10s linear infinite;
+}
+
+@keyframes walk{
+	0%{
+		background-position: 0px;
+	}
+	100%{
+		background-position: 1600px
+	}
+}
+
+@keyframes forward{
+	0%{
+		transform:translateX(-100px);
+	}
+
+	100%{
+		transform:translateX(1000px);
+	}
+}
