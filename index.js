@@ -17,16 +17,33 @@ let database = firebase.database();
 let storage = firebase.storage();
 
 
-function loginToGoogle() {
+async function loginToGoogle() {
     let provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider);
+    await auth.signInWithPopup(provider);
+    addNameToDatabase();
+    readFromDatabase();
 }
 
 function signOut() {
     auth.signOut();
+    deleteNameFromeDatabase();
+    readFromDatabase();
 }
 
+function addNameToDatabase() {
+    database.ref("/user").set({"userId" : auth.currentUser.displayName})
+}
+
+function deleteNameFromeDatabase() {
+    database.ref("/user").set({"userId" : "Not Login"})
+}
   
+function readFromDatabase() {
+    database.ref("/user/userId").once("value", function(snapshot){
+      document.getElementById("userName").innerHTML = snapshot.val();
+    });
+}
+
 function addNewItem() {
     var itemName = document.getElementById("itemNameId").value
     var price = document.getElementById("priceId").value
